@@ -38,12 +38,19 @@ class TwigPlugin extends Plugin {
   public $type = 'filter';
 
   /**
-   * The twig plugin function for process.
+   * The twig filter or function name available in twig templates.
+   *
+   *
+   * @var string
+   */
+  public $name = 'name';
+
+  /**
+   * The twig plugin function for process the output.
    *
    *
    * @var string
    */
   public $function = 'function';
-
 
 }
