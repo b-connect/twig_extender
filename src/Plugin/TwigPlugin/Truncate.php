@@ -20,6 +20,6 @@ use Drupal\Component\Utility\Unicode;
 
 class Truncate extends TwigPluginBase {
   public function truncate($string, $max_length,$wordsafe = FALSE, $add_ellipsis = FALSE, $min_wordsafe_length = 1) {
-    return Unicode::truncate($string, $max_length, $wordsafe = FALSE, $add_ellipsis = FALSE, $min_wordsafe_length = 1);
+    return Unicode::truncate($string, $max_length, $wordsafe , $add_ellipsis , $min_wordsafe_length);
   }
 }
