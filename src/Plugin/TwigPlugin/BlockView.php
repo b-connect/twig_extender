@@ -24,6 +24,6 @@ class BlockView extends TwigPluginBase {
     $block_content = \Drupal::entityManager()
       ->getViewBuilder('block')
       ->view($block);
-    return drupal_render($block_content);
+    return \Drupal::service('renderer')->render($block_content);
   }
 }
