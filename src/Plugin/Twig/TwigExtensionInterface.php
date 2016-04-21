@@ -1,12 +1,38 @@
 <?php
 
+/**
+ * @file
+ * Contains \Drupal\twig_extender\Plugin\Twig\TwigExtensionInterface.
+ */
+
 namespace Drupal\twig_extender\Plugin\Twig;
 
-use Drupal\Component\Plugin\ConfigurablePluginInterface;
 use Drupal\Component\Plugin\DerivativeInspectionInterface;
 use Drupal\Component\Plugin\PluginInspectionInterface;
-use Drupal\Core\Plugin\PluginFormInterface;
 
+/**
+ * Plugin interface.
+ */
 interface TwigExtensionInterface extends PluginInspectionInterface, DerivativeInspectionInterface {
-    function register();
+
+  /**
+   * Get type of the twig extension.
+   */
+  public function getType();
+
+  /**
+   * Get type of the twig extension.
+   */
+  public function getName();
+
+  /**
+   * Get type of the twig extension.
+   */
+  public function getFunction();
+
+  /**
+   * Get type of the twig extension.
+   */
+  public function register();
+
 }

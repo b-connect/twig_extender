@@ -7,7 +7,6 @@ use Drupal\twig_extender\Plugin\Twig\TwigPluginBase;
 /**
  * The plugin for check authenticated user.
  *
- *
  * @TwigPlugin(
  *   id = "twig_extender_get_block",
  *   label = @Translation("Get a block"),
@@ -16,14 +15,20 @@ use Drupal\twig_extender\Plugin\Twig\TwigPluginBase;
  *   function = "getBlock"
  * )
  */
-
 class BlockView extends TwigPluginBase {
-  public function getBlock($block_id) {
-    $block = \Drupal\block\Entity\Block::load($block_id);
-    if ( !$block ) return;
-    $block_content = \Drupal::entityManager()
+
+  /**
+   * Implementation for render block.
+   */
+  public function getBlock($blockId) {
+    $block = \Drupal\block\Entity\Block::load($blockId);
+    if (!$block) {
+      return;
+    }
+    $blockContent = \Drupal::entityManager()
       ->getViewBuilder('block')
       ->view($block);
-    return \Drupal::service('renderer')->render($block_content);
+    return \Drupal::service('renderer')->render($blockContent);
   }
+
 }

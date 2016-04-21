@@ -6,8 +6,7 @@ use Drupal\twig_extender\Plugin\Twig\TwigPluginBase;
 use Drupal\Component\Utility\Unicode;
 
 /**
- * Example plugin for truncate
- *
+ * Example plugin for truncate.
  *
  * @TwigPlugin(
  *   id = "twig_extender_truncate",
@@ -17,9 +16,13 @@ use Drupal\Component\Utility\Unicode;
  *   function = "truncate"
  * )
  */
-
 class Truncate extends TwigPluginBase {
-  public function truncate($string, $max_length,$wordsafe = FALSE, $add_ellipsis = FALSE, $min_wordsafe_length = 1) {
-    return Unicode::truncate($string, $max_length, $wordsafe , $add_ellipsis , $min_wordsafe_length);
+
+  /**
+   * Implement truncate filter.
+   */
+  public function truncate($string, $maxLength,$wordsafe = FALSE, $addEllipsis = FALSE, $minWordsafeLength = 1) {
+    return Unicode::truncate($string, $maxLength, $wordsafe , $addEllipsis , $minWordsafeLength);
   }
+
 }

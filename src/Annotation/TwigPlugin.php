@@ -12,9 +12,7 @@ use Drupal\Component\Annotation\Plugin;
 /**
  * Defines a TwigPlugin annotation object.
  *
- *
  * Plugin namespace: Plugin\TwigPlugin
- *
  *
  * @Annotation
  */
@@ -31,7 +29,7 @@ class TwigPlugin extends Plugin {
    *
    * Available options:
    *  - filter: A twig filter plugin
-   *  - function: A twig function
+   *  - function: A twig function.
    *
    * @var string
    */
@@ -40,14 +38,12 @@ class TwigPlugin extends Plugin {
   /**
    * The twig filter or function name available in twig templates.
    *
-   *
    * @var string
    */
   public $name = 'name';
 
   /**
    * The twig plugin function for process the output.
-   *
    *
    * @var string
    */
