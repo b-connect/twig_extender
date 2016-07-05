@@ -1,5 +1,5 @@
-name: twig_extender
+name: Twig Extender
 type: module
 description: Add new extensions to twig template engine
 core: 8.x
-package: Custom
+package: Twig
