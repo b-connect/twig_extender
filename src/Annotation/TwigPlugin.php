@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains Drupal\twig_extender\Annotation\TwigPlugin.
- */
-
 namespace Drupal\twig_extender\Annotation;
 
 use Drupal\Component\Annotation\Plugin;
@@ -12,7 +7,7 @@ use Drupal\Component\Annotation\Plugin;
 /**
  * Defines a TwigPlugin annotation object.
  *
- * Plugin namespace: Plugin\TwigPlugin
+ * Plugin namespace: Plugin\TwigPlugin.
  *
  * @Annotation
  */

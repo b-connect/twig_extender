@@ -21,8 +21,12 @@ class Truncate extends TwigPluginBase {
   /**
    * Implement truncate filter.
    */
-  public function truncate($string, $maxLength,$wordsafe = FALSE, $addEllipsis = FALSE, $minWordsafeLength = 1) {
-    return Unicode::truncate($string, $maxLength, $wordsafe , $addEllipsis , $minWordsafeLength);
+  public function truncate($string,
+                           $maxLength,
+                           $wordsafe = FALSE,
+                           $addEllipsis = FALSE,
+                           $minWordsafeLength = 1) {
+    return Unicode::truncate($string, $maxLength, $wordsafe, $addEllipsis, $minWordsafeLength);
   }
 
 }

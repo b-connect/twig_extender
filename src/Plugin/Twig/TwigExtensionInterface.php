@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains \Drupal\twig_extender\Plugin\Twig\TwigExtensionInterface.
- */
-
 namespace Drupal\twig_extender\Plugin\Twig;
 
 use Drupal\Component\Plugin\DerivativeInspectionInterface;
