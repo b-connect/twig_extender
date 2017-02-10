@@ -3,6 +3,7 @@
 namespace Drupal\twig_extender\Plugin\TwigPlugin;
 
 use Drupal\twig_extender\Plugin\Twig\TwigPluginBase;
+use Drupal\block\Entity\Block;
 
 /**
  * The plugin for check authenticated user.
@@ -21,7 +22,7 @@ class BlockView extends TwigPluginBase {
    * Implementation for render block.
    */
   public function getBlock($blockId) {
-    $block = \Drupal\block\Entity\Block::load($blockId);
+    $block = Block::load($blockId);
     if (!$block) {
       return;
     }

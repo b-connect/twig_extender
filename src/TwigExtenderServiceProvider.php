@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains Drupal\my_module\MyModuleServiceProvider
- */
-
 namespace Drupal\twig_extender;
 
 use Drupal\Core\DependencyInjection\ContainerBuilder;

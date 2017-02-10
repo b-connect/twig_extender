@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains \Drupal\twig_extender\Plugin\Twig\TwigPluginManagerInterface.
- */
-
 namespace Drupal\twig_extender\Plugin\Twig;
 
 use Drupal\Component\Plugin\PluginManagerInterface;

@@ -1,14 +1,8 @@
 <?php
 
-/**
- * @file
- * Contains \Drupal\twig_extender\Plugin\Twig\TwigPluginBase.
- */
-
 namespace Drupal\twig_extender\Plugin\Twig;
 
 use Drupal\Core\Plugin\PluginBase;
-use Drupal\twig_extender\Plugin\Twig\TwigExtensionInterface;
 
 /**
  * Provides a base class for Twig plugins plugins.
