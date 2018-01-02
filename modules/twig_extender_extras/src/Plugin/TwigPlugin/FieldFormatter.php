@@ -30,14 +30,14 @@ class FieldFormatter extends TwigPluginBase {
    * @param string $label
    *  Label option for formatter, could be hidden|above|inside
    *
+   * @param array $settings
+   *  Settings for formatter plugin.
+   *
    * @param int maxItems
    *  How many items to display.
    *
    * @param int $offset
    *  Offset to start from.
-   *
-   * @param array $settings
-   *  Settings for formatter plugin.
    *
    */
   public function getField($field, $formatter, $label = 'hidden', $settings = [], $maxItems = -1, $offset = 0) {
@@ -60,7 +60,6 @@ class FieldFormatter extends TwigPluginBase {
           $field->removeItem(0);
         }
       }
-
 
       if ($maxItems > 0 && $maxItems != $field->count())  {
         $remove = ($field->count() - $maxItems);
