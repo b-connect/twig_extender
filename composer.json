@@ -16,5 +16,6 @@
     }
   ],
   "require": {
+    "fightbulc/moment": "^1.26"
   }
 }
