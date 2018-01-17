@@ -46,6 +46,6 @@ On frontpage
 ### Filter: To url
 
 ```
-{{ node | to_url }}
-{{ urlObject | to_url }}
+{{ node|to_url }}
+{{ urlObject|to_url }}
 ```
