@@ -37,11 +37,15 @@ Using a exisiting block configuration
 
 ### Function: Is front
 
+```
 {% if is_front() %}
 On frontpage
 {% endif %}
+```
 
 ### Filter: To url
 
+```
 {{ node | to_url }}
 {{ urlObject | to_url }}
+```
