@@ -2,11 +2,11 @@
 
 ## Moment Function
 
-See all possibilities
+See all possibilities https://github.com/fightbulc/moment.php
 
 ### Moment format
 
-Using with drupal timezone https://github.com/fightbulc/moment.php
+Using with drupal timezone
 ```
   {{ data|moment_format('d-M-Y') }}
 ```
