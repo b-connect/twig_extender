@@ -2,9 +2,8 @@
 
 namespace Drupal\twig_extender_extras\Plugin\TwigPlugin;
 
-use Drupal\Core\Render\Element;
 use Drupal\twig_extender\Plugin\Twig\TwigPluginBase;
-use Moment\Moment;
+use Moment\CustomFormats\MomentJs;
 
 /**
  * Provide helper methods for Drupal render elements.
@@ -17,7 +16,7 @@ use Moment\Moment;
  *   function = "moment"
  * )
  */
-class MomentFormat extends TwigPluginBase {
+class MomentFormat extends BaseMoment {
 
   /**
    * Identifies the children of an element array, optionally sorted by weight.
@@ -35,34 +34,22 @@ class MomentFormat extends TwigPluginBase {
    *   The filtered array to loop over.
    * @throws \Exception
    */
-  public function moment($date, $format, $timezone = NULL) {
+  public function moment($date, $format, $timezone = NULL, $js = FALSE) {
 
-    $language = \Drupal::service('language_manager')->getCurrentLanguage();
-    $lang = implode('_', [
-      $language->getId(),
-      strtoupper($language->getId())
-    ]);
-    Moment::setLocale($lang);
+    $moment = $this->getMoment($date, $timezone);
 
-    if ($timezone === NULL) {
-      $timezone = drupal_get_user_timezone();
+    $value = $moment->format($format);
+    if ($js === true) {
+      $value = $moment->format($format, new MomentJs());
     }
 
     $build = [
       '#cache' => [
         'contexts' => ['languages', 'timezone']
-      ]
+      ],
+      '#markup' => $value
     ];
 
-    if (is_numeric($date)) {
-      $value = (new Moment())->setTimestamp($date)
-                            ->setTimezone($timezone)
-                            ->format($format);
-      $build['#markup'] = $value;
-      return $build;
-    }
-    $value = (new Moment($date, $timezone))->format($format);
-    $build['#markup'] = $value;
     return $build;
   }
 

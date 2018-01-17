@@ -8,14 +8,14 @@ use Drupal\twig_extender\Plugin\Twig\TwigPluginBase;
  * Provide helper methods for Drupal render elements.
  *
  * @TwigPlugin(
- *   id = "twig_extender_moment_calendar",
+ *   id = "twig_extender_moment_add",
  *   label = @Translation("Identifies the children of an element array, optionally sorted by weight."),
  *   type = "filter",
- *   name = "moment_calendar",
+ *   name = "moment_operation",
  *   function = "moment"
  * )
  */
-class MomentCalendar extends BaseMoment {
+class MomentOperation extends BaseMoment {
 
   /**
    * Identifies the children of an element array, optionally sorted by weight.
@@ -33,17 +33,10 @@ class MomentCalendar extends BaseMoment {
    *   The filtered array to loop over.
    * @throws \Exception
    */
-  public function moment($date,$timezone = NULL) {
+  public function moment($date, $operation, $entry, $number, $timezone = NULL) {
     $moment = $this->getMoment($date, $timezone);
-
-    $build = [
-      '#cache' => [
-        'contexts' => ['languages', 'timezone']
-      ],
-      '#markup' => $moment->calendar()
-    ];
-
-    return $build;
+    $funcCall = $operation . ucfirst($entry);
+    return $moment->$funcCall($number);
   }
 
 }

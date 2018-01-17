@@ -1,16 +1,72 @@
 # Installing
 
-Please add following line in settings.php for using moment object directly in Twig.
+## Moment Function
+
+### Moment format
+
+Using with drupal timezone
+```
+  {{ data|moment_format('d-M-Y') }}
+```
+
+Set a timezone
+```
+  {{ data|moment_format('d-M-Y','Europe/Berlin') }}
+```
+
+Using moment.js formats
 
 ```
-$settings['twig_sandbox_whitelisted_classes'] = [
-  'Drupal\Core\Template\Attribute',
-  'Moment\Moment'
-];
+  {{ data|moment_format('LLLL, 'Europe/Berlin', true) }}
 ```
 
-# Using Moment Function
+### Moment operations
+
+Usables operations add|subtract
+
+Usable time limits seconds|minutes|hours|days|weeks|months|years
 
 ```
-{{ moment(date).add('2', ') }}
+{{ data|moment_format('l') }} // Monday
+{{ date|moment_operation('add', 'days', 1)|moment_format('l') }} // Tuesday
+```
+
+### Moment calendar
+
+```
+{{ data|moment_calendar }} // 3 days ago
+```
+
+### Moment difference
+
+Usable operations relative|direction|seconds|minutes|hours|days|weeks|months|years
+
+```
+{{ from|moment_difference(to, 'relative') }}
+```
+
+## Field items
+
+```
+<ul>
+  {% for item in content.field_tags|children %}
+    <li>{{ item }}</li>
+  {% endfor %}
+</ul>
+```
+
+Sorted:
+
+```
+<ul>
+  {% for item in content.field_tags|children(true) %}
+    <li>{{ item }}</li>
+  {% endfor %}
+</ul>
+```
+
+## Formatter
+
+```
+{{ node.field_to_view|view('link', {target: '_blank'}) }}
 ```
