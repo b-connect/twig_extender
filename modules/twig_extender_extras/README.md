@@ -72,3 +72,9 @@ Sorted:
 ```
 {{ node.field_to_view|view('link', {target: '_blank'}) }}
 ```
+
+## Raw URL value
+
+```
+{{ node.field_link|url_value) }}
+```
