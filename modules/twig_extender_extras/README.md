@@ -76,5 +76,5 @@ Sorted:
 ## Raw URL value
 
 ```
-{{ node.field_link|url_value) }}
+{{ node.field_link|url_value }}
 ```
