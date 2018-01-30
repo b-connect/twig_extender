@@ -42,9 +42,9 @@ class TwigExtensionsPluginManager extends DefaultPluginManager implements TwigPl
     $this->themeHandler = $themeHandler;
     $this->moduleHandler = $moduleHandler;
     $this->setCacheBackend($cacheBackend, 'twig_extender');
-    $this->defaults += array(
+    $this->defaults += [
       'class' => 'Drupal\twig_extender\Plugin\Twig\TwigPluginBase',
-    );
+    ];
     $this->alterInfo('twig_extender');
   }
 

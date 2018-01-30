@@ -16,7 +16,7 @@ class TestController extends ControllerBase {
    *   Return Hello string.
    */
   public function test() {
-    
+
     $nodes = \Drupal::entityManager()->getStorage('node')->loadMultiple();
     $build = [
       '#type' => 'container',
@@ -25,11 +25,11 @@ class TestController extends ControllerBase {
     foreach ($nodes as $node) {
       $build['#children'][] = [
         '#theme' => 'twig_extender_test_node',
-        '#node' => $node
+        '#node' => $node,
       ];
       $build['#children'][] = [
         '#theme' => 'twig_extender_test_node',
-        '#node' => $node->toUrl()
+        '#node' => $node->toUrl(),
       ];
     }
     return $build;

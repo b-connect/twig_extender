@@ -2,8 +2,6 @@
 
 namespace Drupal\twig_extender_extras\Plugin\TwigPlugin;
 
-use Drupal\twig_extender\Plugin\Twig\TwigPluginBase;
-
 /**
  * Provide helper methods for Drupal render elements.
  *
@@ -18,20 +16,22 @@ use Drupal\twig_extender\Plugin\Twig\TwigPluginBase;
 class MomentOperation extends BaseMoment {
 
   /**
-   * Identifies the children of an element array, optionally sorted by weight.
+   * Possibility to add or substract days or weeks ...
    *
-   * The children of a element array are those key/value pairs whose key does
-   * not start with a '#'. See drupal_render() for details.
-   *
-   * @param array $elements
+   * @param string $date
    *   The element array whose children are to be identified. Passed by
    *   reference.
-   * @param bool $sort
+   * @param bool $operation
+   *   Boolean to indicate whether the children should be sorted by weight.
+   * @param bool $entry
+   *   Boolean to indicate whether the children should be sorted by weight.
+   * @param bool $number
+   *   Boolean to indicate whether the children should be sorted by weight.
+   * @param bool $timezone
    *   Boolean to indicate whether the children should be sorted by weight.
    *
    * @return array
    *   The filtered array to loop over.
-   * @throws \Exception
    */
   public function moment($date, $operation, $entry, $number, $timezone = NULL) {
     $moment = $this->getMoment($date, $timezone);

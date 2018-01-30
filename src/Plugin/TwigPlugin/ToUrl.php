@@ -2,8 +2,8 @@
 
 namespace Drupal\twig_extender\Plugin\TwigPlugin;
 
+use Drupal\Core\Entity\ContentEntityBase;
 use Drupal\twig_extender\Plugin\Twig\TwigPluginBase;
-use Drupal\Core\Entity;
 
 /**
  * The plugin for render a url string of url object or ContentEntityBase object.
@@ -13,7 +13,7 @@ use Drupal\Core\Entity;
  *   label = @Translation("Get path alias by path"),
  *   type = "filter",
  *   name = "to_url",
- *   function = "toUrl"
+ *   function = "getUrl"
  * )
  */
 class ToUrl extends TwigPluginBase {
@@ -21,9 +21,9 @@ class ToUrl extends TwigPluginBase {
   /**
    * Implementation for render block.
    */
-  public function toUrl($url, $absolute = false) {
+  public function getUrl($url, $absolute = FALSE) {
 
-    if (is_a($url, \Drupal\Core\Entity\ContentEntityBase::class)) {
+    if (is_a($url, ContentEntityBase::class)) {
       $url = $url->toUrl();
     }
     if (is_a($url, 'Drupal\Core\Url')) {

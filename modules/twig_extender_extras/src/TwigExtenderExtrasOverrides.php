@@ -3,9 +3,8 @@
 namespace Drupal\twig_extender_extras;
 
 use Drupal\Core\Cache\CacheableMetadata;
-use Drupal\Core\Config\ConfigFactoryOverrideInterface;
 use Drupal\Core\Config\StorageInterface;
-use Drupal\Core\Site\Settings;
+use Drupal\Core\Config\ConfigFactoryOverrideInterface;
 
 /**
  * Example configuration override.
@@ -16,7 +15,7 @@ class TwigExtenderExtrasOverrides implements ConfigFactoryOverrideInterface {
    * {@inheritdoc}
    */
   public function loadOverrides($names) {
-    $overrides = array();
+    $overrides = [];
 
     if (in_array('twig_sandbox_whitelisted_classes', $names)) {
       print_r($names);

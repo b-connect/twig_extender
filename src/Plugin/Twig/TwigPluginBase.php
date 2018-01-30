@@ -35,9 +35,9 @@ class TwigPluginBase extends PluginBase implements TwigExtensionInterface {
    */
   public function register() {
     if ($this->getType() == 'function') {
-      return new \Twig_SimpleFunction($this->getName(), array($this, $this->getFunction()));
+      return new \Twig_SimpleFunction($this->getName(), [$this, $this->getFunction()]);
     }
-    return new \Twig_SimpleFilter($this->getName(), array($this, $this->getFunction()));
+    return new \Twig_SimpleFilter($this->getName(), [$this, $this->getFunction()]);
   }
 
 }

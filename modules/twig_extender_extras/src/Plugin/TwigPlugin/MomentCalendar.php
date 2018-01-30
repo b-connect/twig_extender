@@ -2,8 +2,6 @@
 
 namespace Drupal\twig_extender_extras\Plugin\TwigPlugin;
 
-use Drupal\twig_extender\Plugin\Twig\TwigPluginBase;
-
 /**
  * Provide helper methods for Drupal render elements.
  *
@@ -18,29 +16,29 @@ use Drupal\twig_extender\Plugin\Twig\TwigPluginBase;
 class MomentCalendar extends BaseMoment {
 
   /**
-   * Identifies the children of an element array, optionally sorted by weight.
+   * Return date formatted in a relative date.
    *
-   * The children of a element array are those key/value pairs whose key does
-   * not start with a '#'. See drupal_render() for details.
-   *
-   * @param array $elements
+   * @param string $date
    *   The element array whose children are to be identified. Passed by
    *   reference.
-   * @param bool $sort
+   * @param string $timezone
    *   Boolean to indicate whether the children should be sorted by weight.
    *
    * @return array
-   *   The filtered array to loop over.
+   *   Array for render.
+   *
    * @throws \Exception
+   *
+   * @see https://github.com/fightbulc/moment.php
    */
-  public function moment($date,$timezone = NULL) {
+  public function moment($date, $timezone = NULL) {
     $moment = $this->getMoment($date, $timezone);
 
     $build = [
       '#cache' => [
-        'contexts' => ['languages', 'timezone']
+        'contexts' => ['languages', 'timezone'],
       ],
-      '#markup' => $moment->calendar()
+      '#markup' => $moment->calendar(),
     ];
 
     return $build;

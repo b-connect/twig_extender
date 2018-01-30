@@ -13,7 +13,7 @@ use Drupal\Component\Utility\Unicode;
  *   label = @Translation("Truncate string"),
  *   type = "filter",
  *   name = "truncate",
- *   function = "truncate"
+ *   function = "trunc"
  * )
  */
 class Truncate extends TwigPluginBase {
@@ -21,7 +21,7 @@ class Truncate extends TwigPluginBase {
   /**
    * Implement truncate filter.
    */
-  public function truncate($string,
+  public function trunc($string,
                            $maxLength,
                            $wordsafe = FALSE,
                            $addEllipsis = FALSE,

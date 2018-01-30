@@ -2,7 +2,6 @@
 
 namespace Drupal\twig_extender_extras\Plugin\TwigPlugin;
 
-use Drupal\twig_extender\Plugin\Twig\TwigPluginBase;
 use Moment\CustomFormats\MomentJs;
 
 /**
@@ -19,19 +18,21 @@ use Moment\CustomFormats\MomentJs;
 class MomentFormat extends BaseMoment {
 
   /**
-   * Identifies the children of an element array, optionally sorted by weight.
+   * Format a date with moment php.
    *
-   * The children of a element array are those key/value pairs whose key does
-   * not start with a '#'. See drupal_render() for details.
-   *
-   * @param array $elements
+   * @param mixed $date
    *   The element array whose children are to be identified. Passed by
    *   reference.
-   * @param bool $sort
+   * @param string $format
+   *   Boolean to indicate whether the children should be sorted by weight.
+   * @param mixed $timezone
+   *   Boolean to indicate whether the children should be sorted by weight.
+   * @param mixed $js
    *   Boolean to indicate whether the children should be sorted by weight.
    *
    * @return array
-   *   The filtered array to loop over.
+   *   Array for render.
+   *
    * @throws \Exception
    */
   public function moment($date, $format, $timezone = NULL, $js = FALSE) {
@@ -39,15 +40,15 @@ class MomentFormat extends BaseMoment {
     $moment = $this->getMoment($date, $timezone);
 
     $value = $moment->format($format);
-    if ($js === true) {
+    if ($js === TRUE) {
       $value = $moment->format($format, new MomentJs());
     }
 
     $build = [
       '#cache' => [
-        'contexts' => ['languages', 'timezone']
+        'contexts' => ['languages', 'timezone'],
       ],
-      '#markup' => $value
+      '#markup' => $value,
     ];
 
     return $build;

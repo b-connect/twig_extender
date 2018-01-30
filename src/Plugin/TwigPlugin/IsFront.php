@@ -3,7 +3,6 @@
 namespace Drupal\twig_extender\Plugin\TwigPlugin;
 
 use Drupal\twig_extender\Plugin\Twig\TwigPluginBase;
-use Drupal\Core\Entity;
 
 /**
  * The plugin for check authenticated user.
@@ -13,7 +12,7 @@ use Drupal\Core\Entity;
  *   label = @Translation("Check if is on frontpage"),
  *   type = "function",
  *   name = "is_front",
- *   function = "isFront"
+ *   function = "front"
  * )
  */
 class IsFront extends TwigPluginBase {
@@ -21,7 +20,7 @@ class IsFront extends TwigPluginBase {
   /**
    * Implementation for render block.
    */
-  public function isFront() {
+  public function front() {
     return \Drupal::service('path.matcher')->isFrontPage();
   }
 

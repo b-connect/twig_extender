@@ -6,7 +6,7 @@ use Drupal\Core\Render\Element;
 use Drupal\twig_extender\Plugin\Twig\TwigPluginBase;
 
 /**
- * Provide helper methods for Drupal render elements.
+ * Twig plugin for loop render childs.
  *
  * @TwigPlugin(
  *   id = "twig_extender_element_children",
@@ -32,9 +32,10 @@ class FieldItems extends TwigPluginBase {
    *
    * @return array
    *   The filtered array to loop over.
+   *
    * @throws \Exception
    */
-  public function children($elements, $sort = FALSE) {
+  public function children(array $elements, $sort = FALSE) {
     if (gettype($elements) !== 'array') {
       throw new \Exception('Could not convert object to array.');
     }

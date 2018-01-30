@@ -2,8 +2,8 @@
 
 namespace Drupal\twig_extender_extras\Plugin\TwigPlugin;
 
+use Drupal\Core\Field\Plugin\DataType\FieldItem;
 use Drupal\twig_extender\Plugin\Twig\TwigPluginBase;
-use Drupal\Core\Entity;
 
 /**
  * The plugin for render a url string of a link field object.
@@ -13,15 +13,23 @@ use Drupal\Core\Entity;
  *   label = @Translation("Get the raw url value from Field"),
  *   type = "filter",
  *   name = "url_value",
- *   function = "urlValue"
+ *   function = "getUrlValue"
  * )
  */
 class UrlValue extends TwigPluginBase {
 
   /**
-   * Implementation for render block.
+   * Get a url value from a link field.
+   *
+   * @param \Drupal\Core\Field\Plugin\DataType\FieldItem $field
+   *   Field item from type link.
+   *
+   * @throws \Exception
+   *
+   * @return \Drupal\Core\Url
+   *   Url object.
    */
-  public function urlValue($field) {
+  public function getUrlValue(FieldItem $field) {
     try {
       $field_type = $field->getFieldDefinition()->getType();
       if ($field_type == 'link') {
@@ -29,7 +37,7 @@ class UrlValue extends TwigPluginBase {
         return $uri;
       }
     }
-    catch (\Exception $e){
+    catch (\Exception $e) {
       \Drupal::logger('twig_extender_extras')->error($e->getMessage());
       throw $e;
     }
