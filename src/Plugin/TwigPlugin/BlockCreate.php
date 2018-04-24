@@ -43,7 +43,7 @@ class BlockCreate extends TwigPluginBase {
     }
 
     $content = $block_plugin->build();
-    dsm($block_plugin->getConfiguration());
+
     if ($content && !Element::isEmpty($content)) {
       if ($wrapper) {
         $build = [
